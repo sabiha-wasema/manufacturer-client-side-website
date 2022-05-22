@@ -28,12 +28,6 @@ const Navbar = ({ children }) => {
 
                             <li><NavLink to="/" className="rounded-lg font-bold ">Home</NavLink></li>
                             <li>
-                                {/* 
-                                <label tabindex="0" class="btn btn-outline btn-primary">Tools</label>
-                                <ul tabindex="0" class="dropdown-content menu p-1 shadow bg-base-100 rounded-box w-52">
-                                    <li><a>Item 1</a></li>
-                                    <li><a>Item 2</a></li>
-                                </ul> */}
                                 <NavLink to="/tools" className="rounded-lg font-bold">Tools</NavLink>
                             </li>
                             <li><NavLink to="/reviews" className="rounded-lg font-bold">Reviews</NavLink></li>
