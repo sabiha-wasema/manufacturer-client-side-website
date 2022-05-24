@@ -1,11 +1,25 @@
 import React from 'react';
-import Banner from './Banner';
+import Blog from '../Blog/Blog';
+import ContactUs from '../Home/ContactUs';
+import Testimonials from '../Home/Testimonials';
+import Banner from '../Home/Banner';
+import Tools from '../Tools/Tools';
+
 
 const Home = () => {
+
     return (
-        <div>
+        <div className='px-20'>
             <Banner />
+            <Tools></Tools>
+            <Blog />
+            <Testimonials />
+            <ContactUs />
+
+
+
         </div>
+
     );
 };
 

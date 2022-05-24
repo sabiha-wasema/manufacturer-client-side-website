@@ -1,0 +1,92 @@
+[
+    {
+        "id": 1,
+        "picture": "https://i.ibb.co/nncKr4N/1.jpg",
+        "name": "Flat Brush",
+        "price": "400",
+        "minimumquantity": "500",
+        "availablequantity": "1000",
+        "supplier": "Sabbir",
+        "description": "A filbert is a narrow, flat brush with hairs that come to a rounded point. Used on its side, a filbert gives a thin line; used flat it produces a broad brushstroke; and by varying the pressure as you apply the brush to canvas, or flicking it across, you can get a tapering mark"
+    },
+    {
+        "id": 2,
+        "picture": "https://i.ibb.co/XFv7pQF/2.jpg",
+        "name": "Angle Brush",
+        "price": "1000",
+        "minimumquantity": "200",
+        "availablequantity": "600",
+        "supplier": "Rahim",
+        "description": "The bristles of an angled sash brush are cut at a slant, making it easier to paint clean lines. Use it for anything with grooves,like cabinets, furniture, or paneled doors,can painting on the surface like window trim and walls."
+    },
+    {
+        "id": 3,
+        "picture": "https://i.ibb.co/7VNtYTB/3.jpg",
+        "name": "Larger Brush",
+        "price": "400",
+        "minimumquantity": "100",
+        "availablequantity": "800",
+        "supplier": "Mr. kamal",
+        "description": "A rigger or liner brush is a thin brush with extremely long bristles. These may come to a sharp point but can have a flat or square tip.These may come to a sharp point but can have a flat or square tip.These may come to a sharp point but can have a flat or square tip."
+    },
+    {
+        "id": 4,
+        "picture": "https://i.ibb.co/PWFwPcF/4.jpg",
+        "name": "Hartz Combo Brush Set",
+        "price": "500",
+        "minimumquantity": "200",
+        "availablequantity": "800",
+        "supplier": "Mr. jamal",
+        "description": "The Hartz Groomer's Best Combo Brush for Dogs was developed with the help of professional groomers. On one side, the fine stainless steel pins with safety.Combo Brush. Double-sided brush detangles, softens coat, and removes excess loose fur to help reduce shedding. ; Slicker Brush. Fine, thin bristles with"
+    },
+    {
+        "id": 5,
+        "picture": "https://i.ibb.co/YpXZkJd/5.jpg",
+        "name": "Mont Marte Brush",
+        "price": "300",
+        "minimumquantity": "300",
+        "availablequantity": "1400",
+        "supplier": "Weins",
+        "description": "Mont Marte Foam Brushes are extremely versatile for many applications, including applying gesso or glue, varnishing, staining.Each brush in this amazing set features a two-tone taklon bristle that is best suited for use with acrylics, watercolors and gouache."
+    },
+    {
+        "id": 6,
+        "picture": "https://i.ibb.co/2gpTzrb/6.png",
+        "name": "Medium Large Brush",
+        "price": "200",
+        "minimumquantity": "400",
+        "availablequantity": "12000",
+        "supplier": "Mark",
+        "description": "For medium-length hair, opt for between a 1.5 and a three-inch round brush. “The bigger the brush, the less wave you'll get; the smaller the brush, the more wave you'll get,” says Rosenkranz."
+    },
+    {
+        "id": 7,
+        "picture": "https://i.ibb.co/qr9SynT/7.jpg",
+        "name": "Pointed Brush",
+        "price": "200",
+        "minimumquantity": "600",
+        "availablequantity": "5000",
+        "supplier": "Mark",
+        "description": "Round or pointed tip. Good for: sketching, outlining, detailed work, controlled washes, filling in small areas. creates thin to thick lines - thin at the tip, becoming wider the more its pressed down."
+    },
+    {
+        "id": 8,
+        "picture": "https://i.ibb.co/7zC7vPB/8.jpg",
+        "name": "Extra large Brush",
+        "price": "200",
+        "minimumquantity": "400",
+        "availablequantity": "1000",
+        "supplier": "Mark",
+        "description": "The 43 mm diameter is the most suitable for long hair, along with the 32, but with different results. The 43 mm round brush gives you smoother, more volume if you want and less marked waves"
+    },
+    {
+        "id": 9,
+        "picture": "https://i.ibb.co/FJx9xr3/9.jpg",
+        "name": "Round Brush",
+        "price": "200",
+        "minimumquantity": "1000",
+        "availablequantity": "5000",
+        "supplier": "Mark",
+        "description": "A round can be used in a number of ways such as to fill, to draw, to apply washes, to spot on small amounts of colour from the tip or produce a thin line for detail and varying thick to thin marks by drawing the brush away from the surface."
+    }
+]
