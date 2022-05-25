@@ -1,14 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import Tool from '../Tool/Tool';
 import { Link } from 'react-router-dom';
+import PurchaseModal from '../PurchaseModal/PurchaseModal';
+
 
 const Tools = () => {
+    const [purchase, setPurchase] = useState(null);
+
 
     const [tools, setTools] = useState([]);
     const firstSixTools = tools.slice(0, 6);
 
     useEffect(() => {
-        fetch('data.json')
+        fetch('http://localhost:5000/tool')
             .then(res => res.json())
             .then(data => setTools(data));
     }, [])
@@ -21,12 +25,20 @@ const Tools = () => {
                     <div className='grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-7 mb-5'>
                         {
                             firstSixTools.map(tool => <Tool
-                                key={tool.id}
+                                key={tool._id}
                                 tool={tool}
-                            >
-                            </Tool>)
+                                setPurchase={setPurchase}
+                            > </Tool>)
                         }
                     </div>
+                    {
+                        purchase && <PurchaseModal
+                            purchase={purchase}
+                            setPurchase={setPurchase}
+                        ></PurchaseModal>
+                    }
+
+
                 </div>
             </div>
             <div className='flex justify-center items-center'>

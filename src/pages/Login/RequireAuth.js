@@ -1,8 +1,8 @@
-/* import React from 'react';
+import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Navigate, useLocation } from 'react-router-dom';
-import auth from '../firebase.init';
-import Loading from '../Pages/Shared/Loading';
+import auth from '../../firebase.init';
+import Loading from '../../Pages/Shared/Loading';
 
 const RequireAuth = ({ children }) => {
     const [user, loading] = useAuthState(auth);
@@ -18,16 +18,16 @@ const RequireAuth = ({ children }) => {
     return children;
 };
 
-export default RequireAuth; */
+export default RequireAuth;
 
 
-import React from "react";
+/* import React from "react";
 import { Navigate, Outlet, useLocation } from "react-router-dom";
 
 const RequireAuth = () => {
     const location = useLocation();
-    // const user = true;
-    const user = false;
+    const user = true;
+    // const user = false;
 
     if (!user) {
         return <Navigate to='/login' state={{ from: location }} replace />;
@@ -36,4 +36,4 @@ const RequireAuth = () => {
     return <Outlet />;
 };
 
-export default RequireAuth; 
+export default RequireAuth;  */

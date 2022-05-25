@@ -1,13 +1,26 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Navbar from './Pages/Shared/Navbar';
-import { publicRoute } from './routes/publicRoutes';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from 'react';
-import RequireAuth from './authentication/RequireAuth';
-import { privateRoutes } from './routes/privateRoutes';
+import RequireAuth from './Pages/Login/RequireAuth';
 import Footer from './Pages/Shared/Footer';
+import Login from './Pages/Login/Login';
+import SignUp from './Pages/Login/SignUp';
+import Home from './Pages/Home/Home';
+import Blog from './Pages/Blog/Blog';
+import PageNotFound from './Pages/PageNotFound/PageNotFound';
+import AllTools from './Pages/Home/AllTools';
+import About from './Pages/About/About';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import ToolDetail from './Pages/ToolDetail/ToolDetail';
+import AdminRoute from './authentication/AdminRoute';
+import Dashboard from './Pages/Dashboard/Dashboard';
+import AddAdmin from './Pages/Dashboard/AddAdmin';
+import AddTool from './Pages/Dashboard/AddTool';
+// import Purchase from './Pages/Purchase/Purchase';
 
 
 function App() {
@@ -18,20 +31,37 @@ function App() {
     <>
       <Navbar>
         <Routes>
-          {publicRoute.map(({ path, Component }, index) => (
-            <Route key={index} path={path} element={<Component />} />
-          ))}
-          <Route element={<RequireAuth />}>
-            {privateRoutes.map(({ path, Component }, index) => (
-              <Route key={index} path={path} element={<Component />} />
-            ))}
+          <Route path="/" element={<Home />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/tool/:toolId" element={
+            <RequireAuth>
+              <ToolDetail />
+            </RequireAuth>} />
+
+          {/* <Route path="/tool/:toolId" element={<Purchase />} /> */}
+          <Route path="alltools" element={
+            <RequireAuth>
+              <AllTools />
+            </RequireAuth>
+          } />
+          <Route path="about" element={
+            <RequireAuth>
+              <About />
+            </RequireAuth>
+          } />
+          <Route element={<AdminRoute />}>
+            <Route path='/dashboard' element={<Dashboard />}>
+              <Route path='add-admin' element={<AddAdmin />} />
+              <Route path='add-tool' element={<AddTool />} />
+            </Route>
           </Route>
+          <Route path="login" element={<Login />} />
+          <Route path="signup" element={<SignUp />} />
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
+        <ToastContainer />
         <Footer />
-      </Navbar>
-
-
-
+      </Navbar >
     </>
   );
 }

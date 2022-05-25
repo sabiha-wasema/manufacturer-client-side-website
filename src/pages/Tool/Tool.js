@@ -2,15 +2,17 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
-const Tool = ({ tool }) => {
+const Tool = ({ tool, setPurchase }) => {
 
-    const { id, picture, name, description, minimumquantity, availablequantity, price
+    const { _id, picture, name, description, minimumquantity, availablequantity, price
     } = tool;
+
     const navigate = useNavigate();
 
     const navigateToToolDetail = id => {
         navigate(`/tool/${id}`);
     }
+
     return (
         <div className='shadow-lg rounded-2xl w-{80px} mb-4 bg-base-200 p-6'>
             <div className='flex-shrink-0'>
@@ -27,10 +29,14 @@ const Tool = ({ tool }) => {
                 <h4><span className='text-xl font-semibold text-warning'>Price:</span> {price}</h4>
             </div>
             <div className='flex justify-center items-center mt-5'>
-                <Link to="/purchase">
-                    <button onClick={() => navigateToToolDetail(id)} className='btn btn-primary mb-3 px-3'>Purchase</button>
-                </Link>
+                {/* <Link to="/purchase">
+                    <button onClick={() => navigateToToolDetail(_id)} className='btn btn-primary mb-3 px-3'>Purchase</button>
+                </Link> */}
 
+                <button onClick={() => navigateToToolDetail(_id)} className='btn btn-primary mb-3 px-3'>Purchase</button>
+
+                {/*  <label for="purchase-modal" onClick={() => setPurchase(tool)} class=" btn btn-primary mb-3 px-3">Purchase</label>
+ */}
             </div>
         </div >
     );
