@@ -15,15 +15,12 @@ import PageNotFound from './Pages/PageNotFound/PageNotFound';
 import About from './Pages/About/About';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-// import ToolDetail from './Pages/ToolDetail/ToolDetail';
 import AdminRoute from './authentication/AdminRoute';
 import Dashboard from './Pages/Dashboard/Dashboard';
 import AddAdmin from './Pages/Dashboard/AddAdmin';
 import UpdateTool from './UpdateTool/UpdateTool';
-import AddItem from './Pages/AddItem/AddItem';
-import MyItems from './Pages/MyItems/MyItems';
-// import AddTool from './Pages/Dashboard/AddTool';
-// import Purchase from './Pages/Purchase/Purchase';
+import ManageTools from './Pages/Dashboard/ManageTools';
+import AddTool from './Pages/Dashboard/AddTool';
 
 
 function App() {
@@ -37,33 +34,27 @@ function App() {
           <Route path="/" element={<Home />} />
           {/* <Route path="/blog" element={<Blog />} /> */}
           <Route path="/tool/:toolId" element={
-            // <RequireAuth>
-            <UpdateTool />
-            // <ToolDetail />
-            // </RequireAuth>} />
-          } />
+            <RequireAuth>
+              <UpdateTool />
+            </RequireAuth>} />
           {/*  <Route path='/blog' element={<Blog />}></Route> */}
-          <Route path='/myItems' element={
-            <RequireAuth>
-              <MyItems />
-            </RequireAuth>
-          } />
-          <Route path='/addItem' element={
-            <RequireAuth>
-              <AddItem />
-            </RequireAuth>
-          } />
-          {/*   <Route path='/manageItems' element={
-            <PrivateRoute>
-              <ManageItems />
-            </PrivateRoute>
-          }></Route> */}
+
           {/* <Route path="/tool/:toolId" element={<ToolDetail />} /> */}
           {/*   <Route path="alltools" element={
             <RequireAuth>
               <AllTools />
             </RequireAuth>
           } />   */}
+          <Route path="/addtool" element={
+            <RequireAuth>
+              <AddTool />
+            </RequireAuth>
+          }></Route>
+          <Route path="/manage" element={
+            <RequireAuth>
+              <ManageTools />
+            </RequireAuth>
+          }></Route>
           <Route path="about" element={
             <RequireAuth>
               <About />
@@ -72,7 +63,8 @@ function App() {
           <Route element={<AdminRoute />}>
             <Route path='/dashboard' element={<Dashboard />}>
               <Route path='add-admin' element={<AddAdmin />} />
-              {/* <Route path='add-tool' element={<AddTool />} /> */}
+              <Route path='manage' element={<ManageTools />} />
+              <Route path='add-tool' element={<AddTool />} />
             </Route>
           </Route>
           <Route path="login" element={<Login />} />

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Tool = ({ tool }) => {
     const { _id, picture, name, description, quantity, price } = tool;
@@ -27,7 +27,9 @@ const Tool = ({ tool }) => {
                 {/* <Link to="/purchase">
                     <button className='btn btn-primary mb-3 px-3'>Purchase</button>
                 </Link> */}
+
                 <button onClick={() => navigateToToolDetail(_id)} className='btn btn-primary'>Purchase : {name}</button>
+
             </div>
 
         </div >

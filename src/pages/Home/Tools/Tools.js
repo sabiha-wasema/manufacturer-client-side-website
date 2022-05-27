@@ -10,7 +10,7 @@ const Tools = () => {
         navigate('/tools')
     }
     const [tools, setTools] = useState([]);
-    const top6tools = tools.slice(0, 6)
+    // const top6tools = tools.slice(0, 6)
 
     useEffect(() => {
         fetch('http://localhost:5000/tool')
@@ -23,7 +23,7 @@ const Tools = () => {
                 <h2 className='text-3xl text-center font-bold mb-7'>Tools (Total tools: {tools.length})</h2>
                 <div className='grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-7 mb-5'>
                     {
-                        top6tools.map(tool => <Tool
+                        tools.map(tool => <Tool
                             key={tool._id}
                             tool={tool}
                         >

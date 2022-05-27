@@ -64,8 +64,6 @@ const UpdateTool = () => {
                 <div className='flex justify-center '>
                     <div className=' px-20 list-none'>
                         <h1 className='text-2xl text-center mb-4 text-red-800 font-bold'>Product Details</h1>
-                        <li><span className='font-bold'>Id: </span>{_id}</li>
-                        <li><span className='font-bold'>Email: </span>{email}</li>
                         <li><span className='font-bold'>Name: </span>{name}</li>
                         <li className='w-96 text-justify'><span className='font-bold'>Description:</span> {description}</li>
                         <li><span className='font-bold'>In Stock:</span> <span className='text-lg text-blue-600'>{quantity}</span></li>
@@ -76,12 +74,12 @@ const UpdateTool = () => {
             </div>
 
             <div className='text-center my-4'>
-                <button onClick={handleDeliveryButton} className='submit-btn-style btn-primary'>Delivered</button>
+                <button onClick={handleDeliveryButton} className='submit-btn-style btn-primary px-4 py-2  rounded-lg'>Delivered</button>
             </div>
 
             <form onSubmit={handleUpdateQuantity} className='text-center bg-base-200 mb-7'>
-                <input className='stock-input-style' type="number" name="quantity" min={1} required placeholder='Quantity' />
-                <input className='submit-btn-style' type="submit" value="Update Stock" />
+                <input className='stock-input-style px-4' type="number" name="quantity" min={1} required placeholder='Quantity' />
+                <input className='submit-btn-style btn-primary px-4 py-2 rounded-lg' type="submit" value="Update Stock" />
             </form>
         </div>
     );

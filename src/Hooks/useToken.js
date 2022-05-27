@@ -1,29 +1,27 @@
-import { useEffect, useState } from "react"
 
-const useToken = user => {
-    const [token, setToken] = useState('');
+
+import axios from "axios";
+import { useEffect, useState } from "react";
+
+const useToken = (user) => {
+    //Declaring State
+    const [token, setToken] = useState("");
+
+    //useEffect Hook to Create JWT Token during Login And Sign Up
     useEffect(() => {
-        const email = user?.user?.email;
-        const currentUser = { email: email };
-        if (email) {
-            fetch(`https://secret-dusk-46242.herokuapp.com/user/${email}`, {
-                method: 'PUT',
-                headers: {
-                    'content-type': 'application/json'
-                },
-                body: JSON.stringify(currentUser)
-            })
-                .then(res => res.json())
-                .then(data => {
-                    console.log('data inside useToken', data);
-                    const accessToken = data.token;
-                    localStorage.setItem('accessToken', accessToken);
-                    setToken(accessToken);
-                })
-        }
-
+        const getToken = async () => {
+            const email = user?.email;
+            if (email) {
+                const { data } = await axios.post("http://localhost:5000/login", {
+                    email,
+                });
+                setToken(data.accessToken);
+                localStorage.setItem("accessToken", data.accessToken);
+            }
+        };
+        getToken();
     }, [user]);
     return [token];
-}
+};
 
 export default useToken;
