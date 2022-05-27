@@ -1,16 +1,14 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
 
-const Tool = ({ tool, setPurchase }) => {
-
+const AllProduct = ({ tool }) => {
     const { _id, picture, name, description, minimumquantity, availablequantity, price
     } = tool;
 
     const navigate = useNavigate();
 
-    const navigateToToolDetail = id => {
-        navigate(`/tool/${id}`);
+    const navigateToToolDetail = () => {
+        navigate(`/purchase`);
     }
 
     return (
@@ -33,7 +31,7 @@ const Tool = ({ tool, setPurchase }) => {
                     <button onClick={() => navigateToToolDetail(_id)} className='btn btn-primary mb-3 px-3'>Purchase</button>
                 </Link> */}
 
-                <button onClick={() => navigateToToolDetail(_id)} className='btn btn-primary mb-3 px-3'>Purchase</button>
+                <button onClick={navigateToToolDetail} className='btn btn-primary mb-3 px-3'>Purchase</button>
 
                 {/*  <label for="purchase-modal" onClick={() => setPurchase(tool)} class=" btn btn-primary mb-3 px-3">Purchase</label>
  */}
@@ -42,4 +40,4 @@ const Tool = ({ tool, setPurchase }) => {
     );
 };
 
-export default Tool;
+export default AllProduct;

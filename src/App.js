@@ -11,7 +11,7 @@ import SignUp from './Pages/Login/SignUp';
 import Home from './Pages/Home/Home';
 import Blog from './Pages/Blog/Blog';
 import PageNotFound from './Pages/PageNotFound/PageNotFound';
-import AllTools from './Pages/Home/AllTools';
+// import AllTools from './Pages/Home/AllTools';
 import About from './Pages/About/About';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -19,7 +19,7 @@ import ToolDetail from './Pages/ToolDetail/ToolDetail';
 import AdminRoute from './authentication/AdminRoute';
 import Dashboard from './Pages/Dashboard/Dashboard';
 import AddAdmin from './Pages/Dashboard/AddAdmin';
-import AddTool from './Pages/Dashboard/AddTool';
+// import AddTool from './Pages/Dashboard/AddTool';
 // import Purchase from './Pages/Purchase/Purchase';
 
 
@@ -39,11 +39,11 @@ function App() {
             </RequireAuth>} />
 
           {/* <Route path="/tool/:toolId" element={<Purchase />} /> */}
-          <Route path="alltools" element={
+          {/*  <Route path="alltools" element={
             <RequireAuth>
               <AllTools />
             </RequireAuth>
-          } />
+          } /> */}
           <Route path="about" element={
             <RequireAuth>
               <About />
@@ -52,7 +52,7 @@ function App() {
           <Route element={<AdminRoute />}>
             <Route path='/dashboard' element={<Dashboard />}>
               <Route path='add-admin' element={<AddAdmin />} />
-              <Route path='add-tool' element={<AddTool />} />
+              {/* <Route path='add-tool' element={<AddTool />} /> */}
             </Route>
           </Route>
           <Route path="login" element={<Login />} />

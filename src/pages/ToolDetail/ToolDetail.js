@@ -32,7 +32,7 @@ const ToolDetail = () => {
                             </span>
                             </p>
                             <p className='mb-3'><span className='font-bold'>Supplier Name:</span> <span className='text-red-600'>{tool.supplier}</span></p>
-                            <button className='px-4 text-black py-2 bg-primary rounded text-center'>Delivered</button>
+                            <button className='px-4 text-black py-2 bg-primary rounded text-center'>Purchase</button>
                         </div>
                     </div>
 
