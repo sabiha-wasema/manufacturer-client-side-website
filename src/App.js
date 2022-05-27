@@ -9,16 +9,19 @@ import Footer from './Pages/Shared/Footer';
 import Login from './Pages/Login/Login';
 import SignUp from './Pages/Login/SignUp';
 import Home from './Pages/Home/Home';
-import Blog from './Pages/Blog/Blog';
+// import Blog from './Pages/Blog/Blog';
 import PageNotFound from './Pages/PageNotFound/PageNotFound';
 // import AllTools from './Pages/Home/AllTools';
 import About from './Pages/About/About';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import ToolDetail from './Pages/ToolDetail/ToolDetail';
+// import ToolDetail from './Pages/ToolDetail/ToolDetail';
 import AdminRoute from './authentication/AdminRoute';
 import Dashboard from './Pages/Dashboard/Dashboard';
 import AddAdmin from './Pages/Dashboard/AddAdmin';
+import UpdateTool from './UpdateTool/UpdateTool';
+import AddItem from './Pages/AddItem/AddItem';
+import MyItems from './Pages/MyItems/MyItems';
 // import AddTool from './Pages/Dashboard/AddTool';
 // import Purchase from './Pages/Purchase/Purchase';
 
@@ -32,18 +35,35 @@ function App() {
       <Navbar>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/blog" element={<Blog />} />
+          {/* <Route path="/blog" element={<Blog />} /> */}
           <Route path="/tool/:toolId" element={
+            // <RequireAuth>
+            <UpdateTool />
+            // <ToolDetail />
+            // </RequireAuth>} />
+          } />
+          {/*  <Route path='/blog' element={<Blog />}></Route> */}
+          <Route path='/myItems' element={
             <RequireAuth>
-              <ToolDetail />
-            </RequireAuth>} />
-
-          {/* <Route path="/tool/:toolId" element={<Purchase />} /> */}
-          {/*  <Route path="alltools" element={
+              <MyItems />
+            </RequireAuth>
+          } />
+          <Route path='/addItem' element={
+            <RequireAuth>
+              <AddItem />
+            </RequireAuth>
+          } />
+          {/*   <Route path='/manageItems' element={
+            <PrivateRoute>
+              <ManageItems />
+            </PrivateRoute>
+          }></Route> */}
+          {/* <Route path="/tool/:toolId" element={<ToolDetail />} /> */}
+          {/*   <Route path="alltools" element={
             <RequireAuth>
               <AllTools />
             </RequireAuth>
-          } /> */}
+          } />   */}
           <Route path="about" element={
             <RequireAuth>
               <About />

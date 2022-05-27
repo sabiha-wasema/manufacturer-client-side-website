@@ -73,7 +73,7 @@ const Navbar = ({ children }) => {
                                 user && <li><NavLink to="/dashboard" className="rounded-lg font-bold">Dashboard</NavLink></li>
                             }
 
-                            <li><NavLink to="/login" className="rounded-lg font-bold">Login</NavLink></li>
+                            <li>{user ? <button className="btn btn-ghost" onClick={logout} >Sign Out</button> : <NavLink to="/login" className="rounded-lg font-bold">Login</NavLink>}</li>
 
                             <label class="swap swap-rotate">
                                 <input type="checkbox" data-toggle-theme="dark,light" />

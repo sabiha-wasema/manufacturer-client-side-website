@@ -3,7 +3,6 @@ import PurchaseModal from '../PurchaseModal/PurchaseModal';
 import Tool from '../Tool/Tool';
 
 const AllTools = () => {
-    const [purchase, setPurchase] = useState(null);
 
     const [tools, setTools] = useState([]);
     useEffect(() => {
@@ -21,17 +20,10 @@ const AllTools = () => {
                             tools.slice(6, 9).map(tool => <Tool
                                 key={tool.id}
                                 tool={tool}
-                                setPurchase={setPurchase}
                             ></Tool>)
                         }
 
                     </div>
-                    {
-                        purchase && <PurchaseModal
-                            purchase={purchase}
-                            setPurchase={setPurchase}
-                        ></PurchaseModal>
-                    }
                 </div>
 
             </div>

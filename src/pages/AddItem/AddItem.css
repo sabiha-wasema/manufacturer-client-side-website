@@ -1,0 +1,18 @@
+.add-input-style{
+    outline: none;
+    width: 250px;
+}
+.addItem-submit-btn{
+    border: 1px solid rgba(48, 48, 48, 0.951);
+    height: 33px;
+    width: 75px;
+    border-radius: 3px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.addItem-submit-btn:hover{
+    background-color: rgba(48, 48, 48, 0.951);
+    color: white;
+    transition: all .3s;
+}

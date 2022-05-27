@@ -1,0 +1,11 @@
+.signin-logo-container img {
+    width: 40px;
+    margin-left: 10px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.signin-logo-container {
+    text-align: center;
+    margin-top: 20px;
+}
