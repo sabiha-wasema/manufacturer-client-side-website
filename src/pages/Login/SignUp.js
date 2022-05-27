@@ -1,145 +1,134 @@
-import React, { useEffect, useState } from 'react';
-import LoginImage from '../../assets/images/social/login.jpg';
-import MailLogo from '../../assets/images/social/mail.png'
-import LockLogo from '../../assets/images/social/lock.png'
+import React from 'react';
+import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
-import toast from 'react-hot-toast';
-import SocialLogin from '../../Hooks/SocialLogin';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
-
+import { useForm } from "react-hook-form";
+import Loading from '../Shared/Loading';
+import { Link, useNavigate } from 'react-router-dom';
+import useToken from '../../Hooks/useToken';
 
 const SignUp = () => {
+    const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
+    const { register, formState: { errors }, handleSubmit } = useForm();
+    const [
+        createUserWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useCreateUserWithEmailAndPassword(auth);
 
-    const navigateToLogin = () => {
-        navigate('/login')
-    }
-    const location = useLocation()
-    const [createUserWithEmailAndPassword, user, loading, firebaseError] =
-        useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+    const [updateProfile, updating, updateError] = useUpdateProfile(auth);
 
-    const [userInfo, setUserInfo] = useState({
-        email: "",
-        password: "",
-        confirmPass: ""
-    })
+    const [token] = useToken(user || gUser);
 
-    const [customError, setCustomError] = useState({
-        emailError: "",
-        passwordError: "",
-        othersError: ""
-    })
+    const navigate = useNavigate();
 
-    const handleInputEmail = event => {
-        const emailRegex = /\S+@\S+\.\S+/
-        const validEmail = emailRegex.test(event.target.value)
-        if (validEmail) {
-            setUserInfo({ ...userInfo, email: event.target.value })
-            setCustomError({ ...customError, emailError: "" })
-        }
-        else {
-            setCustomError({ ...customError, emailError: "Invalid email" })
-            setUserInfo({ ...userInfo, email: "" })
-        }
+    let signInError;
+
+    if (loading || gLoading || updating) {
+        return <Loading></Loading>
     }
 
-    const handleInputPassword = event => {
-        const passwordRegex = /.{6,}/
-        const validPassword = passwordRegex.test(event.target.value)
-        if (validPassword) {
-            setUserInfo({ ...userInfo, password: event.target.value })
-            setCustomError({ ...customError, passwordError: "" })
-        }
-        else {
-            setCustomError({ ...customError, passwordError: "Minimum 6 character length" })
-            setUserInfo({ ...userInfo, password: "" })
-        }
+    if (error || gError || updateError) {
+        signInError = <p className='text-red-500'><small>{error?.message || gError?.message || updateError?.message}</small></p>
     }
 
-    const handleInputConfirmPassword = event => {
-
-        if (event.target.value === userInfo.password) {
-            setUserInfo({ ...userInfo, confirmPass: event.target.value })
-            setCustomError({ ...customError, passwordError: "" })
-        }
-        else {
-            setCustomError({ ...customError, passwordError: "Password don't match" })
-            setUserInfo({ ...userInfo, confirmPass: "" })
-        }
+    if (token) {
+        navigate('/dashboard');
     }
 
-    useEffect(() => {
-        if (firebaseError) {
-            toast.error(`${firebaseError.message}`)
-        }
-    }, [firebaseError])
-
-    const navigate = useNavigate()
-    const from = location.state?.from?.pathname || "/"
-    useEffect(() => {
-        if (user) {
-            navigate(from, { replace: true })
-        }
-    })
-
-    const handleFormSubmit = event => {
-        event.preventDefault()
-        createUserWithEmailAndPassword(userInfo.email, userInfo.confirmPass);
+    const onSubmit = async data => {
+        await createUserWithEmailAndPassword(data.email, data.password);
+        await updateProfile({ displayName: data.name });
+        console.log('update done');
     }
-
-
     return (
-        <div className='login-container'>
-            <div className='login-image-container'>
-                <img className='login-illustration' src={LoginImage} alt="" />
+        <div className='flex h-screen justify-center items-center'>
+            <div className="card w-96 bg-base-100 shadow-xl">
+                <div className="card-body">
+                    <h2 className="text-center text-2xl font-bold">Sign Up</h2>
+                    <form onSubmit={handleSubmit(onSubmit)}>
+
+                        <div className="form-control w-full max-w-xs">
+                            <label className="label">
+                                <span className="label-text">Name</span>
+                            </label>
+                            <input
+                                type="text"
+                                placeholder="Your Name"
+                                className="input input-bordered w-full max-w-xs"
+                                {...register("name", {
+                                    required: {
+                                        value: true,
+                                        message: 'Name is Required'
+                                    }
+                                })}
+                            />
+                            <label className="label">
+                                {errors.name?.type === 'required' && <span className="label-text-alt text-red-500">{errors.name.message}</span>}
+                            </label>
+                        </div>
+
+                        <div className="form-control w-full max-w-xs">
+                            <label className="label">
+                                <span className="label-text">Email</span>
+                            </label>
+                            <input
+                                type="email"
+                                placeholder="Your Email"
+                                className="input input-bordered w-full max-w-xs"
+                                {...register("email", {
+                                    required: {
+                                        value: true,
+                                        message: 'Email is Required'
+                                    },
+                                    pattern: {
+                                        value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
+                                        message: 'Provide a valid Email'
+                                    }
+                                })}
+                            />
+                            <label className="label">
+                                {errors.email?.type === 'required' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
+                                {errors.email?.type === 'pattern' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
+                            </label>
+                        </div>
+                        <div className="form-control w-full max-w-xs">
+                            <label className="label">
+                                <span className="label-text">Password</span>
+                            </label>
+                            <input
+                                type="password"
+                                placeholder="Password"
+                                className="input input-bordered w-full max-w-xs"
+                                {...register("password", {
+                                    required: {
+                                        value: true,
+                                        message: 'Password is Required'
+                                    },
+                                    minLength: {
+                                        value: 6,
+                                        message: 'Must be 6 characters or longer'
+                                    }
+                                })}
+                            />
+                            <label className="label">
+                                {errors.password?.type === 'required' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
+                                {errors.password?.type === 'minLength' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
+                            </label>
+                        </div>
+
+                        {signInError}
+                        <input className='btn w-full max-w-xs text-white' type="submit" value="Sign Up" />
+                    </form>
+                    <p><small>Already have an account? <Link className='text-primary' to="/login">Please login</Link></small></p>
+                    <div className="divider">OR</div>
+                    <button
+                        onClick={() => signInWithGoogle()}
+                        className="btn btn-outline"
+                    >Continue with Google</button>
+                </div>
             </div>
-            <form onSubmit={handleFormSubmit} className='form-container'>
-                <div>
-                    <h2 className='login-text text-zinc-700'>Register</h2>
-                </div>
-                <div className='inputs-container'>
-                    <p className='email-password-text'>Email</p>
-                    <div className='flex'>
-                        <img src={MailLogo} alt="" />
-                        <input onChange={handleInputEmail} className='input-style' type="email" name="" id="email" placeholder='Type your email' required />
-                    </div>
-                    <div className='bottom-line'></div>
-                    {
-                        customError?.emailError && <p className='text-red-500 mt-1 text-sm'>{customError.emailError}</p>
-                    }
-
-                    <p className='email-password-text'>Password</p>
-                    <div className='flex'>
-                        <img src={LockLogo} alt="" />
-                        <input onChange={handleInputPassword} className='input-style' type="password" name="" id="password" placeholder='Type your password' required />
-                    </div>
-                    <div className='bottom-line'></div>
-                    {
-                        customError?.passwordError && <p className='text-red-500 mt-1 text-sm'>{customError.passwordError}</p>
-                    }
-                    <p className='email-password-text'>Confirm Password</p>
-                    <div className='flex'>
-                        <img src={LockLogo} alt="" />
-                        <input onChange={handleInputConfirmPassword} className='input-style' type="password" name="" id="password" placeholder='Type your confirm password' required />
-                    </div>
-                    <div className='bottom-line'></div>
-
-
-                    <div className='flex justify-between forget-container'>
-                        <p className='mx-4 register my-4'>Already have an Account? <span onClick={navigateToLogin} className="cursor-pointer hover:text-blue-700 text-blue-500">Please Login</span></p>
-                    </div>
-
-                    <input className='login-button' type="submit" value="Login" />
-
-                    <div className='or-container'>
-                        <div className='line'></div>
-                        <p className='text-center mx-5'>Or</p>
-                        <div className='line'></div>
-                    </div>
-                    <SocialLogin></SocialLogin>
-                </div>
-            </form>
-        </div>
+        </div >
     );
 };
 

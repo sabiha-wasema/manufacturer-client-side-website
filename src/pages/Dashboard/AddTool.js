@@ -22,12 +22,13 @@ const AddTool = () => {
 
 
     return (
-        <div className='container mx-auto mt-20'>
+        <div className='container mx-auto mt-20 p-10'>
             <h2 className='text-center text-3xl text-red-800'>Please add a tool</h2>
-            <form className='grid grid-cols-1 px-20 bg-base-200 p-10' onSubmit={handleSubmit(onSubmit)}>
+            <form className='grid grid-cols-1 px-20 bg-base-200 p-5' onSubmit={handleSubmit(onSubmit)}>
                 <input className='mb-2' placeholder='Name' {...register("name", { required: true, maxLength: 20 })} />
                 <textarea className='mb-2' placeholder='Description' {...register("description")} />
                 <input className='mb-2' placeholder='Price' type="number" {...register("price")} />
+                <input className='mb-2' placeholder='quantity' type="number" {...register("quantity")} />
                 <input className='mb-2' placeholder='Photo URL' type="text" {...register("picture")} />
                 <input type="submit" className='btn btn-primary' value="Add Service" />
             </form>

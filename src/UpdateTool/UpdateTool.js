@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-// import './UpdateInventory.css'
 import toast from 'react-hot-toast';
-// import { nameSliceText } from '../Utilites/Utilites';
 
 
 const UpdateTool = () => {
+
     const { toolId } = useParams()
     const [tool, setTool] = useState({})
     const [isReload, setIsReload] = useState(false)
@@ -38,7 +37,6 @@ const UpdateTool = () => {
                 event.target.reset()
             })
     }
-
     const handleDeliveryButton = async () => {
         const url = `http://localhost:5000/delivery/${toolId}`;
         await fetch(url, {
@@ -55,6 +53,9 @@ const UpdateTool = () => {
                 toast.success("Delivery Success!!")
             })
     }
+
+
+
     return (
         <div className='mt-20 container mx-auto bg-base-200'>
             <div className='mt-20 w-full lg:flex lg:justify-items-center px-20'>
@@ -81,6 +82,7 @@ const UpdateTool = () => {
                 <input className='stock-input-style px-4' type="number" name="quantity" min={1} required placeholder='Quantity' />
                 <input className='submit-btn-style btn-primary px-4 py-2 rounded-lg' type="submit" value="Update Stock" />
             </form>
+
         </div>
     );
 };

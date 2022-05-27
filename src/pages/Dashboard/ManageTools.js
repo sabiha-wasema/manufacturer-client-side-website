@@ -24,7 +24,8 @@ const ManageTools = () => {
             <h2 className='mt-10 text-2xl font-bold text-red-800'>Manage Your Items</h2>
             {
                 tools.map(tool => <div className='mb-1' key={tool._id}>
-                    <div>
+                    <div className='flex justify-items-center'>
+                        <img className='w-10' src={tool.picture} alt="" />
                         <h5 className='px-10'>{tool.name} <span className='text-bold text-xl text-primary pr-7'>${tool.price}</span><button className='bg-red-600 px-3' onClick={() => handleDelete(tool._id)}>X</button></h5>
                     </div>
 

@@ -13,10 +13,6 @@ const Navbar = ({ children }) => {
         navigate('/')
     }
 
-    const navigateTologin = () => {
-        navigate('/login')
-    }
-
     const [user, loading, error] = useAuthState(auth);
 
     const logout = () => {
@@ -69,9 +65,6 @@ const Navbar = ({ children }) => {
                         <ul class="menu menu-horizontal gap-x-2 my-1">
 
                             <li><NavLink to="/" className="rounded-lg font-bold ">Home</NavLink></li>
-                            <li>
-                                <NavLink to="/tools" className="rounded-lg font-bold">Tools</NavLink>
-                            </li>
                             <li>
                                 <NavLink to="/blog" className="rounded-lg font-bold">Blog</NavLink>
                             </li>
