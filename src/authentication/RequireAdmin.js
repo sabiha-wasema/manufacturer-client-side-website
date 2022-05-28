@@ -1,9 +1,9 @@
-/* import React from 'react';
+import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Navigate, useLocation } from 'react-router-dom';
 import auth from '../firebase.init';
 import Loading from '../Pages/Shared/Loading';
-import useAdmin from '../hooks/useAdmin';
+import useAdmin from '../Hooks/useAdmin';
 import { signOut } from 'firebase/auth';
 
 const RequireAdmin = ({ children }) => {
@@ -22,11 +22,11 @@ const RequireAdmin = ({ children }) => {
     return children;
 };
 
-export default RequireAdmin; */
+export default RequireAdmin;
 
 
 
-import React from "react";
+/* import React from "react";
 import { Navigate, Outlet, useLocation } from "react-router-dom";
 import useAdmin from "../hooks/useAdmin";
 
@@ -41,4 +41,4 @@ const RequireAdmin = () => {
     return <Outlet />;
 };
 
-export default RequireAdmin;
+export default RequireAdmin; */

@@ -23,6 +23,7 @@ import ManageTools from './Pages/Dashboard/ManageTools';
 import AddTool from './Pages/Dashboard/AddTool';
 import Users from './Pages/Dashboard/Users';
 import { QueryClient, QueryClientProvider } from "react-query";
+import RequireAdmin from './authentication/RequireAdmin';
 
 
 
@@ -73,7 +74,10 @@ function App() {
 
               <Route path='user' element={
                 <QueryClientProvider client={queryClient}>
-                  <Users />
+                  <RequireAdmin>
+                    <Users />
+                  </RequireAdmin>
+
                 </QueryClientProvider>
               } />
             </Route>
