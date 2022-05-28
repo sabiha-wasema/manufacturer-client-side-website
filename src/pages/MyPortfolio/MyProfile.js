@@ -35,9 +35,9 @@ const MyProfile = () => {
                                 <li>Firebase</li>
                             </td>
                             <td>
-                                <li></li>
-                                <li></li>
-                                <li></li>
+                                <li><a>Livesite</a></li>
+                                <li><a href=': https://independent-service-prov-553a2.web.app/'>Livesite</a></li>
+                                <li><a href='https://gauche-fruit-center.web.app/'>Livesite</a></li>
                             </td>
                         </tr>
 

@@ -62,12 +62,13 @@ function App() {
               <About />
             </RequireAuth>
           } />
+          <Route path="portfolio" element={<MyProfile />} />
           <Route element={<AdminRoute />}>
             <Route path='/dashboard' element={<Dashboard />}>
               <Route path='add-admin' element={<AddAdmin />} />
               <Route path='manage' element={<ManageTools />} />
               <Route path='add-tool' element={<AddTool />} />
-              <Route path="portfolio" element={<MyProfile />} />
+
               <Route path='user' element={
                 <QueryClientProvider client={queryClient}>
                   <RequireAdmin>
