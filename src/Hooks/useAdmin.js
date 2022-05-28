@@ -1,7 +1,7 @@
-/* import { useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 
 const useAdmin = user => {
-    const [admin, setAdmin] = useState(false);
+    const [admin, setAdmin] = useState(true);
     const [adminLoading, setAdminLoading] = useState(true);
     useEffect(() => {
         const email = user?.email;
@@ -24,10 +24,10 @@ const useAdmin = user => {
     return [admin, adminLoading]
 }
 
-export default useAdmin; */
+export default useAdmin;
 
 
-import React, { useState } from "react";
+/* import React, { useState } from "react";
 
 const useAdmin = () => {
     const [admin, setAdmin] = useState(true);
@@ -35,4 +35,4 @@ const useAdmin = () => {
     return [admin];
 };
 
-export default useAdmin; 
+export default useAdmin;  */

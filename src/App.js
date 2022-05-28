@@ -22,9 +22,13 @@ import UpdateTool from './UpdateTool/UpdateTool';
 import ManageTools from './Pages/Dashboard/ManageTools';
 import AddTool from './Pages/Dashboard/AddTool';
 import Users from './Pages/Dashboard/Users';
+import { QueryClient, QueryClientProvider } from "react-query";
+
 
 
 function App() {
+  const queryClient = new QueryClient();
+
   useEffect(() => {
     AOS.init({ disable: 'mobile' });
   }, []);
@@ -66,7 +70,12 @@ function App() {
               <Route path='add-admin' element={<AddAdmin />} />
               <Route path='manage' element={<ManageTools />} />
               <Route path='add-tool' element={<AddTool />} />
-              <Route path='user' element={<Users />} />
+
+              <Route path='user' element={
+                <QueryClientProvider client={queryClient}>
+                  <Users />
+                </QueryClientProvider>
+              } />
             </Route>
           </Route>
           <Route path="login" element={<Login />} />
