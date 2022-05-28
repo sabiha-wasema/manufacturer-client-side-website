@@ -1,40 +1,50 @@
 import React from 'react';
-import './Blogs.css'
 
 const Blogs = () => {
     return (
-        <div className='my-10'>
-            <div>
-                <h2 className='text-center text-lg font-semibold'>Difference between javascript and nodejs ?</h2>
+        <div className='my-20 grid lg:grid-cols-3 md:grid-cols-2 container mx-auto gap-4 p-16'>
+            <div className='rounded-lg shadow-lg p-4'>
+                <h2 className='text-xl font-bold text-red-800 text-center mt-7 px-2'>How will you improve the performance of a React Application?</h2>
                 <div className='ans-container'>
-                    <p className='text-center font-semibold'>Node js</p>
-                    <p className='text-justify'>Node js is not a language. it is a cross-platform, open-source, server side runtime environment. it facilitates javascript to be rin on a server (out side of the browser). node.js can run on various platform - windows, linux, mac os, etc</p>
-                    <p className='text-center font-semibold'>Java Script</p>
-                    <p className='text-justify'>Javascript is a lightweight, object-oriented scripting language. it is used to build dynamic html pages with interactive efforts on a webpage, mobile application, games, server applications etc.</p>
+                    <p className='text-blue-700 mt-4 mb-5 px-5'>Keeping the component state local where necessary.
+                        Memoizing React components to prevent unnecessary re-renders.
+                        Code-splitting in React using dynamic import()
+                        Windowing or list virtualization in React.
+                        Lazy loading images in React.</p>
                 </div>
             </div>
-            <div>
-                <h2 className='text-center text-lg font-semibold mt-8'>When should you use nodejs and when should you use mongodb ?</h2>
+            <div className='rounded-lg shadow-lg p-4'>
+                <h2 className='text-xl font-bold text-red-800 text-center mt-7 px-2 '>What are the different ways to manage a state in a React application?</h2>
                 <div className='ans-container'>
-                    <p className='text-center font-semibold'>Node js</p>
-                    <p className='text-justify'>If there is a large application and there is heavy load on the input output or scalable network then it is better to use node js.</p>
-                    <p className='text-center font-semibold'>MongoDB</p>
-                    <p className='text-justify'>When a website has user created or different types of products and they need to be loaded and displayed on the website then they need space to keep them which is called database. mongodb is a kind of nosql database, where we can keep the data a lot like json format.</p>
+                    <p className='text-blue-700 mt-4 mb-5 px-5'>There are four main types of state need to properly manage in the React applications:
+                        1. Local state.
+                        2. Global state.
+                        3. Server state.
+                        4.URL state.</p>
                 </div>
             </div>
-            <div>
-                <h2 className='text-center text-lg font-semibold mt-8'>Differences between sql and nosql databases ?</h2>
+            <div className='rounded-lg shadow-lg p-4'>
+                <h2 className='text-xl font-bold text-red-800 text-xl font-bold text-red-800 text-center mt-7 px-2'>How does prototypical inheritance work?</h2>
                 <div className='ans-container'>
-                    <p className='text-center font-semibold'>sql</p>
-                    <p className='text-justify'>Everything is already structured in the sql database. There will be things called property, they are given. And sql makes it a little harder to change these things.</p>
-                    <p className='text-center font-semibold'>nosql</p>
-                    <p className='text-justify'>On the other hand mongodb is a little more flexible than sql. If I want, I can add property in the product first, then I can add it later. We can also keep all the things in the form of a collection.</p>
+                    <p className='text-blue-700 mt-4 mb-5 px-5'>JavaScript is a prototype-based, Object Oriented programming language. After the ES6 updates, JavaScript allowed for “prototypal inheritance”, meaning that objects and methods can be shared, extended, and copied.
+
+                        Sharing amid objects makes for easy inheritance of structure (data fields), behavior (functions / methods), and state (data values).
+
+                        JavaScript is the most common of the prototype-capable languages, and its capabilities are relatively unique. When used appropriately, prototypical inheritance in JavaScript is a powerful tool that can save hours of coding.
+
+                        Today, we want to get you acquainted with prototypal inheritance in JavaScript to get you up to date with the ES6 capabilities.</p>
                 </div>
             </div>
-            <div>
-                <h2 className='text-center text-lg font-semibold mt-8'>What is the purpose of jwt and how does it work ?</h2>
+            <div className='rounded-lg shadow-lg p-4'>
+                <h2 className='text-xl font-bold text-red-800 text-center mt-7 px-2'>Why you do not set the state directly in React. For example, if you have const [products, setProducts] = useState([]). Why you do not set products = [...] instead, you use the setProducts</h2>
                 <div className='ans-container '>
-                    <p className='text-justify'>The purpose of jwt is to make the website more secure. Here's how it works: After a user logs in, jwt gives him a token that is saved in the user's local storage or cookies, and the next time the user logs in again, the server can see who the user is by looking at that token. If someone else tries to steal the user's token and use it, the website will send him to the login page.</p>
+                    <p className='text-blue-700 mt-4 mb-5 px-5'>One should never update the state directly because of the following reasons: If you update it directly, calling the setState() afterward may just replace the the state.While a React component can have initial state, the real power is in updating its state — after all, if we didn't need to update the state, the component shouldn't have any state. State is only reserved for data that changes in our component and is visible in the UI. Instead of directly modifying the state using this.</p>
+                </div>
+            </div>
+            <div className='rounded-lg shadow-lg p-4'>
+                <h2 className='text-xl font-bold text-red-800 text-center mt-7 px-2'>What is a unit test? Why should write unit tests?</h2>
+                <div className='ans-container '>
+                    <p className='text-blue-700 mt-4 mb-5 px-5'>Unit testing allows the programmer to refactor code at a later date, and make sure the module still works correctly (i.e. Regression testing). The procedure is to write test cases for all functions and methods so that whenever a change causes a fault, it can be quickly identified and fixed.</p>
                 </div>
             </div>
         </div>

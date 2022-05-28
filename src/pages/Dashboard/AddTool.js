@@ -22,7 +22,7 @@ const AddTool = () => {
 
 
     return (
-        <div className='container mx-auto mt-20 p-10'>
+        <div className='container mx-auto p-10'>
             <h2 className='text-center text-3xl text-red-800'>Please add a tool</h2>
             <form className='grid grid-cols-1 px-20 bg-base-200 p-5' onSubmit={handleSubmit(onSubmit)}>
                 <input className='mb-2' placeholder='Name' {...register("name", { required: true, maxLength: 20 })} />

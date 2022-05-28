@@ -9,7 +9,6 @@ import Footer from './Pages/Shared/Footer';
 import Login from './Pages/Login/Login';
 import SignUp from './Pages/Login/SignUp';
 import Home from './Pages/Home/Home';
-// import Blog from './Pages/Blog/Blog';
 import PageNotFound from './Pages/PageNotFound/PageNotFound';
 // import AllTools from './Pages/Home/AllTools';
 import About from './Pages/About/About';
@@ -24,6 +23,8 @@ import AddTool from './Pages/Dashboard/AddTool';
 import Users from './Pages/Dashboard/Users';
 import { QueryClient, QueryClientProvider } from "react-query";
 import RequireAdmin from './authentication/RequireAdmin';
+import MyProfile from './Pages/MyPortfolio/MyProfile';
+import Blogs from './Pages/Blogs/Blogs';
 
 
 
@@ -43,9 +44,7 @@ function App() {
             <RequireAuth>
               <UpdateTool />
             </RequireAuth>} />
-          {/*  <Route path='/blog' element={<Blog />}></Route> */}
-
-          {/* <Route path="/tool/:toolId" element={<ToolDetail />} /> */}
+          <Route path='/blog' element={<Blogs />}></Route>
           {/*   <Route path="alltools" element={
             <RequireAuth>
               <AllTools />
@@ -77,18 +76,19 @@ function App() {
                   <RequireAdmin>
                     <Users />
                   </RequireAdmin>
-
                 </QueryClientProvider>
               } />
             </Route>
           </Route>
+          <Route path="portfolio" element={<MyProfile />}>MyPortfolio</Route>
           <Route path="login" element={<Login />} />
           <Route path="signup" element={<SignUp />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
         <ToastContainer />
-        <Footer />
+
       </Navbar >
+      <Footer />
     </>
   );
 }

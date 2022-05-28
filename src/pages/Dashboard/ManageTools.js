@@ -20,8 +20,8 @@ const ManageTools = () => {
         }
     }
     return (
-        <div className='w-50 mx-auto mt-20'>
-            <h2 className='mt-10 text-2xl font-bold text-red-800'>Manage Your Items</h2>
+        <div className='w-50 mx-auto'>
+            <h2 className='mt-10 mb-7 text-2xl font-bold text-red-800'>Manage Your Items</h2>
             {
                 tools.map(tool => <div className='mb-1' key={tool._id}>
                     <div className='flex justify-items-center'>
