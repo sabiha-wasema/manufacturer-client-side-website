@@ -11,7 +11,7 @@ const UpdateTool = () => {
     const { picture, _id, email, name, description, quantity, price, supplier } = tool;
 
     useEffect(() => {
-        const url = `http://localhost:5000/tool/${toolId}`;
+        const url = `https://enigmatic-citadel-64410.herokuapp.com/tool/${toolId}`;
 
         fetch(url)
             .then(res => res.json())
@@ -21,7 +21,7 @@ const UpdateTool = () => {
     const handleUpdateQuantity = event => {
         event.preventDefault()
         const quantity = event.target.quantity.value
-        const url = `http://localhost:5000/tool/${toolId}`;
+        const url = `https://enigmatic-citadel-64410.herokuapp.com/tool/${toolId}`;
         fetch(url, {
             method: 'PUT',
             headers: {
@@ -38,7 +38,7 @@ const UpdateTool = () => {
             })
     }
     const handleDeliveryButton = async () => {
-        const url = `http://localhost:5000/delivery/${toolId}`;
+        const url = `https://enigmatic-citadel-64410.herokuapp.com/delivery/${toolId}`;
         await fetch(url, {
             method: 'PUT',
             headers: {

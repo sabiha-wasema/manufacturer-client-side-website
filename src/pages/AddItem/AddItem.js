@@ -18,7 +18,7 @@ const AddItem = () => {
         // console.log(name, description, quantity, price, supplier, img);
         const tool = { email, name, picture, description, price, availablequantity, minimumquantity, supplier }
 
-        fetch('http://localhost:5000/tool', {
+        fetch('https://enigmatic-citadel-64410.herokuapp.com/tool', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

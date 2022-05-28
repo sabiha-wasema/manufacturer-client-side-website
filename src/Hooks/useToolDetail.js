@@ -4,7 +4,7 @@ const useToolDetail = toolId => {
     const [tool, setTool] = useState({});
 
     useEffect(() => {
-        const url = `http://localhost:5000/tool/${toolId}`;
+        const url = `https://enigmatic-citadel-64410.herokuapp.com/tool/${toolId}`;
         console.log(url);
         fetch(url)
             .then(res => res.json())

@@ -7,7 +7,7 @@ const Reviews = () => {
 
     const onSubmit = data => {
         console.log(data);
-        const url = `http://localhost:5000/review`;
+        const url = `https://enigmatic-citadel-64410.herokuapp.com/review`;
         fetch(url, {
             method: 'POST',
             headers: {

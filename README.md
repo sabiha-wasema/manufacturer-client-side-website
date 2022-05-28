@@ -1,5 +1,7 @@
 # BrushWaremag
 
+Live site Link (https://brush-ware-mag.web.app)
+
 Welcome to BrushWaremag. This is a manufactureded website. This repository contains client site code.(https://github.com/programming-hero-web-course1/manufacturer-website-client-side-sabiha-wasema).
 
 ## Features

@@ -13,7 +13,7 @@ const Tools = () => {
     // const top6tools = tools.slice(0, 6)
 
     useEffect(() => {
-        fetch('http://localhost:5000/tool')
+        fetch('https://enigmatic-citadel-64410.herokuapp.com/tool')
             .then(res => res.json())
             .then(data => setTools(data));
     }, [])

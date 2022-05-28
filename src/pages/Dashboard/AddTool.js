@@ -6,7 +6,7 @@ const AddTool = () => {
 
     const onSubmit = data => {
         console.log(data);
-        const url = `http://localhost:5000/tool`;
+        const url = `https://enigmatic-citadel-64410.herokuapp.com/tool`;
         fetch(url, {
             method: 'POST',
             headers: {

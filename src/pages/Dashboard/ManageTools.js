@@ -7,7 +7,7 @@ const ManageTools = () => {
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure?');
         if (proceed) {
-            const url = `http://localhost:5000/tool/${id}`;
+            const url = `https://enigmatic-citadel-64410.herokuapp.com/tool/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
