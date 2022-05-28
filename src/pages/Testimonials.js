@@ -69,7 +69,7 @@ const Testimonials = () => {
                 <Link
                     className='text-xl  font-semibold bg-primary rounded-md px-4 py-2 text-black text-center'
                     to='/reviews'
-                >See All Reviews</Link>
+                >See All</Link>
             </div>
         </section>
     );

@@ -3,7 +3,7 @@ import React from 'react';
 const MyProfile = () => {
     return (
         <div className='mt-20'>
-            <h1>My portfolio</h1>
+            <h1 className='text-xl font-bold text-center text-red-800'>My portfolio</h1>
             <div class="overflow-x-auto">
                 <table class="table w-full">
                     <thead>

@@ -17,9 +17,16 @@ const DashboardSidebar = ({ children }) => {
       <div class='drawer-side '>
         <label for='my-drawer-2' class='drawer-overlay'></label>
         <ul class='menu p-4 overflow-y-auto w-56 bg-base-100 text-base-content'>
-          <li>
-            <NavLink to='/dashboard/my-orders'>MyOrders</NavLink>
-          </li>
+          {
+            user && <>
+              <li>
+                <NavLink to='/dashboard/my-orders'>MyOrders</NavLink>
+              </li>
+              <li>
+                <NavLink to='/dashboard/portfolio'>MyProfile</NavLink>
+              </li>
+            </>
+          }
 
           {
             admin && <>

@@ -66,10 +66,12 @@ const Navbar = ({ children }) => {
 
                             <li><NavLink to="/" className="rounded-lg font-bold ">Home</NavLink></li>
                             <li>
+                                <NavLink to="/summary" className="rounded-lg font-bold">Business Summary</NavLink>
+                            </li>
+                            <li>
                                 <NavLink to="/blog" className="rounded-lg font-bold">Blog</NavLink>
                             </li>
-                            <li><NavLink to="/reviews" className="rounded-lg font-bold">Reviews</NavLink></li>
-                            <li><NavLink to="/businesssummary" className="rounded-lg font-bold">Business Summary</NavLink></li>
+                            <li><NavLink to="/review" className="rounded-lg font-bold">Reviews</NavLink></li>
                             <li><NavLink to="/about" className="rounded-lg font-bold">About</NavLink></li>
                             <li><NavLink to="/portfolio" className="rounded-lg font-bold">MyPortfolio</NavLink></li>
                             {
