@@ -21,6 +21,7 @@ import AddAdmin from './Pages/Dashboard/AddAdmin';
 import UpdateTool from './UpdateTool/UpdateTool';
 import ManageTools from './Pages/Dashboard/ManageTools';
 import AddTool from './Pages/Dashboard/AddTool';
+import Users from './Pages/Dashboard/Users';
 
 
 function App() {
@@ -65,6 +66,7 @@ function App() {
               <Route path='add-admin' element={<AddAdmin />} />
               <Route path='manage' element={<ManageTools />} />
               <Route path='add-tool' element={<AddTool />} />
+              <Route path='user' element={<Users />} />
             </Route>
           </Route>
           <Route path="login" element={<Login />} />
