@@ -1,6 +1,6 @@
 # BrushWaremag
 
-Welcome to BrushWaremag. This is a warehouse website. This repository contains client site code.(https://github.com/programming-hero-web-course1/manufacturer-website-client-side-sabiha-wasema).
+Welcome to BrushWaremag. This is a manufactureded website. This repository contains client site code.(https://github.com/programming-hero-web-course1/manufacturer-website-client-side-sabiha-wasema).
 
 ## Features
 
